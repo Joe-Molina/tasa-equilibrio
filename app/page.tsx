@@ -1,6 +1,7 @@
 'use client'
 
 import { Landmark } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -10,11 +11,11 @@ export default function Home() {
 
   const totalBinance = (divisa - (divisa*(porcentaje/100))) - 0.06
   return (
-    <div className="flex flex-col min-h-screen font-sans bg-blue-950/10">
+    <div className="flex flex-col h-screen font-sans bg-blue-950/10">
       <div className="h-16 font-bold text-xl flex items-center px-2  bg-blue-900/10 border-y border-gray-800/50 w-full">
         DolarInteligente
       </div>
-      <div className="flex flex-col gap-5  p-3">
+      <div className="flex grow flex-col gap-5  p-3">
         <div className="opacity-50 font-normal text-sm">
           Tu guía estratégica para la venta de divisas. Calcula el precio mínimo ideal para vender tu efectivo sin quedar por debajo de la tasa USDT. Una referencia clara y rápida para proteger tu capital y negociar siempre con los mejores márgenes del mercado.
         </div>
@@ -36,7 +37,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col">
-            <p className="text-xs opacity-50">tasa de cambio USDT x Bs</p>
+            <p className="text-xs opacity-50">tasa de cambio USDT x Bs </p>
             
             <div className="flex items-center text-3xl font-black"><input type="num" className="field-sizing-content min-w-3" onChange={(e) => setBs(Number(e.target.value))} placeholder="ej: 510" /><p className="font-normal opacity-50">Bs</p></div>
           </div>
@@ -59,6 +60,8 @@ export default function Home() {
           <p className="opacity-70 text-sm font-thin text-center">Vende en físico solo si el precio es mayor a {((totalBinance*bs)/divisa).toFixed(2)} Bs Si te ofrecen menos, obtendrás mayor beneficio convirtiendo tus divisas a USDT.</p>
         </div>}
       </div>
+      <footer className="flex gap-1  justify-center opacity-70 p-4 bg-linear-to-r from-blue-300/10 to-blue-300/5"><p>herramienta hecha por</p> <Link className="text-violet-400" href="https://jodomodev.vercel.app/">jodomodev</Link></footer>
+      
       
     </div>
   );
